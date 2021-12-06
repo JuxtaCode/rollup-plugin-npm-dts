@@ -1,3 +1,4 @@
+import 'regenerator-runtime';
 import { Generator } from 'npm-dts'
 import { Config } from "src/config";
 import path from 'path';

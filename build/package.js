@@ -8,8 +8,10 @@ const year = yearRange(pkg.since || new Date().getFullYear());
 
 const name = formatModule(pkg.name);
 const deps = pkg.dependencies;
-const external = Object.keys(deps);
-const globals = Object.fromEntries(Object.keys(deps).map(key => [key, formatModule(key)]));
+const peer = pkg.peerDependencies;
+const external = Object.keys(deps).concat(Object.keys(peer));
+
+const globals = Object.fromEntries(external.map(key => [key, formatModule(key)]));
 
 export { name, deps, external, globals, year, pkg, formatModule };
 
